@@ -278,6 +278,7 @@ function Library:new(Options)
 			Tab["20"]["BackgroundTransparency"] = 1;
 			Tab["20"]["Size"] = UDim2.new(1, 0, 1, 0);
 			Tab["20"]["Name"] = [[HomeTab]];
+			Tab["20"].Visible = (Tab["20"] == UI.CurrentTab)
 
 			-- StarterGui.MyLibrary.Frame.ContentContainer.HomeTab.TabContent
 			Tab["21"] = Instance.new("ScrollingFrame", Tab["20"]);

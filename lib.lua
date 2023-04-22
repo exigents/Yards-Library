@@ -126,7 +126,7 @@ function Library:new(Options)
 		UI["a"]["ScaleType"] = Enum.ScaleType.Fit;
 		UI["a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 		UI["a"]["AnchorPoint"] = Vector2.new(1, 0.5);
-		UI["a"]["Image"] = [[rbxassetid://13215637215]];
+		UI["a"]["Image"] = [[rbxassetid://13215731331]];
 		UI["a"]["Size"] = UDim2.new(0, 22, 0, 22);
 		UI["a"]["Name"] = [[Close]];
 		UI["a"]["Position"] = UDim2.new(1, -8, 0.5, 0);
@@ -1070,7 +1070,7 @@ function Library:new(Options)
 	UI["a"].MouseButton1Click:Connect(function()
 		if UI["Opened"] == true then
 			UI["2"]["ClipsDescendants"] = true
-			UI["a"]["Image"] = "rbxassetid://13215644995"
+			UI["a"]["Image"] = "rbxassetid://13215738894"
 			Library:Tween(UI["2"], {Size = UDim2.new(0, 400, 0, 30)}, function()
 				UI["Opened"] = false
 				UI["2"]["BackgroundTransparency"] = 1
@@ -1080,7 +1080,7 @@ function Library:new(Options)
 		elseif UI["Opened"] == false then
 			UI["2"]["BackgroundTransparency"] = 0
 			UI["4"].Visible = true
-			UI["a"]["Image"] = "rbxassetid://13215637215"
+			UI["a"]["Image"] = "rbxassetid://13215731331"
 			Library:Tween(UI["2"], {Size = UDim2.new(0, 400, 0, 300)}, function()
 				UI["2"]["ClipsDescendants"] = false
 				UI["Opened"] = true

@@ -1070,6 +1070,7 @@ function Library:new(Options)
 	UI["a"].MouseButton1Click:Connect(function()
 		if UI["Opened"] == true then
 			UI["2"]["ClipsDescendants"] = true
+			UI["a"]["Image"] = "rbxassetid://13215593152"
 			Library:Tween(UI["2"], {Size = UDim2.new(0, 400, 0, 30)}, function()
 				UI["Opened"] = false
 				UI["2"]["BackgroundTransparency"] = 1
@@ -1079,6 +1080,7 @@ function Library:new(Options)
 		elseif UI["Opened"] == false then
 			UI["2"]["BackgroundTransparency"] = 0
 			UI["4"].Visible = true
+			UI["a"]["Image"] = "rbxassetid://13212899616"
 			Library:Tween(UI["2"], {Size = UDim2.new(0, 400, 0, 300)}, function()
 				UI["2"]["ClipsDescendants"] = false
 				UI["Opened"] = true

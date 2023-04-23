@@ -46,7 +46,7 @@ function Library:new(Options)
 		Keybind = Enum.KeyCode.RightShift,
 		theme = Options["color"]
 	}
-
+	
 	do
 		-- StarterGui.MyLibrary
 		UI["1"] = Instance.new("ScreenGui", RunService:IsStudio() and Players.LocalPlayer:WaitForChild("PlayerGui") or CoreGui);
@@ -92,7 +92,7 @@ function Library:new(Options)
 
 		-- StarterGui.MyLibrary.Frame.TopBar
 		UI["6"] = Instance.new("Frame", UI["2"]);
-		UI["6"]["BackgroundColor3"] = Options["color"];
+		UI["6"]["BackgroundColor3"] = UI["theme"];
 		UI["6"]["Size"] = UDim2.new(1, 0, 0, 30);
 		UI["6"]["Name"] = [[TopBar]];
 		UI["6"]["ZIndex"] = 100

@@ -153,3 +153,19 @@ local Dropdown = Tab:MakeDropdown({
 		print(value)
 	end,
 })
+
+--[[----------------------------------------------------------------------
+
+CREATING A NOTIFICATION
+Arguments: 
+title = "Notification Title"
+text = "Notification Text"
+length = 5
+
+----------------------------------------------------------------------]]--
+
+Window:Notify({
+    title = "Notification",
+    text = "Test",
+    length = 10,
+})

@@ -30,8 +30,10 @@ function Library:new(Options)
 	local Options = Options or {}
 	Options = Library:ValidateOptions({
 		title = "UI Library",
+		color = Color3.fromRGB(178, 79, 80)
 	}, Options)
-
+	
+	
 	local UI = {
 		CurrentTab = nil,
 		Hover = false,
@@ -42,6 +44,7 @@ function Library:new(Options)
 		Opened = true,
 		CurrentNotifications = {},
 		Keybind = Enum.KeyCode.RightShift,
+		theme = Options["color"]
 	}
 
 	do
@@ -89,7 +92,7 @@ function Library:new(Options)
 
 		-- StarterGui.MyLibrary.Frame.TopBar
 		UI["6"] = Instance.new("Frame", UI["2"]);
-		UI["6"]["BackgroundColor3"] = Color3.fromRGB(178, 79, 80);
+		UI["6"]["BackgroundColor3"] = Options["color"];
 		UI["6"]["Size"] = UDim2.new(1, 0, 0, 30);
 		UI["6"]["Name"] = [[TopBar]];
 		UI["6"]["ZIndex"] = 100
@@ -97,7 +100,7 @@ function Library:new(Options)
 		-- StarterGui.MyLibrary.Frame.TopBar.Bottom
 		UI["7"] = Instance.new("Frame", UI["6"]);
 		UI["7"]["BorderSizePixel"] = 0;
-		UI["7"]["BackgroundColor3"] = Color3.fromRGB(178, 79, 80);
+		UI["7"]["BackgroundColor3"] = Options["color"];
 		UI["7"]["AnchorPoint"] = Vector2.new(0, 1);
 		UI["7"]["Size"] = UDim2.new(1, 0, 0.5, 0);
 		UI["7"]["Position"] = UDim2.new(0, 0, 1, 0);
@@ -229,7 +232,7 @@ function Library:new(Options)
 			-- StarterGui.MyLibrary.Frame.Navigation.ButtonHolder.Inactive
 			Tab["19"] = Instance.new("Frame", UI["11"]);
 			Tab["19"]["BorderSizePixel"] = 0;
-			Tab["19"]["BackgroundColor3"] = Color3.fromRGB(173, 77, 78);
+			Tab["19"]["BackgroundColor3"] = Options["color"];
 			Tab["19"]["BackgroundTransparency"] = 1;
 			Tab["19"]["Size"] = UDim2.new(1, 0, 0, 30);
 			Tab["19"]["Name"] = [[Inactive]];
@@ -1062,7 +1065,7 @@ function Library:new(Options)
 			-- StarterGui.Notification.Frame.Topbar
 			NotiUI["3"] = Instance.new("Frame", NotiUI["2"]);
 			NotiUI["3"]["ZIndex"] = 2;
-			NotiUI["3"]["BackgroundColor3"] = Color3.fromRGB(211, 95, 106);
+			NotiUI["3"]["BackgroundColor3"] = UI["theme"];
 			NotiUI["3"]["Size"] = UDim2.new(1, 0, 0, 30);
 			NotiUI["3"]["Position"] = UDim2.new(0, 0, 0, -20);
 			NotiUI["3"]["Name"] = [[Topbar]];

@@ -1043,7 +1043,7 @@ function Library:new(Options)
 		
 		if #UI.CurrentNotifications > 0 then
 			for i,v in pairs(UI.CurrentNotifications) do
-				Library:Tween(v, {Position = v.Position + UDim2.new(0,0, 0, -105)})
+				Library:Tween(v, {Position = v.Position + UDim2.new(0,0, 0, -115)})
 			end
 		end
 		

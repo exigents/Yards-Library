@@ -1163,12 +1163,12 @@ function Library:new(Options)
 					Library:Tween(NotiUI["2"], {Position = UDim2.new(1.5, 0, 1, -80)}, function()
 						for i,v in pairs(UI.CurrentNotifications) do
 							if v == NotiUI["2"] then
-								table.remove(UI.CurrentNotifications, i)
 								for g, h in pairs(UI.CurrentNotifications) do
 									if g > i then
 										Library:Tween(h, {Position = UDim2.new(0, 0, 0, 105)})
 									end
 								end
+								table.remove(UI.CurrentNotifications, i)
 							end
 						end
 						NotiUI["1"]:Destroy()

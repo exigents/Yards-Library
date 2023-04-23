@@ -1147,7 +1147,7 @@ function Library:new(Options)
 			-- StarterGui.Notification.Frame.UICorner
 			NotiUI["b"] = Instance.new("UICorner", NotiUI["2"]);
 			
-			table.insert(UI.CurrentNotifications, NotiUI["2"])
+			UI.CurrentNotifications[#UI.CurrentNotifications+1] = NotiUI["2"]
 		end
 		
 		NotiUI["2"].MouseEnter:Connect(function()

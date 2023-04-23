@@ -1041,8 +1041,12 @@ function Library:new(Options)
 		local NotiUI = {}
 		
 		do
+			NotiUI["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
+			NotiUI["1"]["IgnoreGuiInset"] = true;
+			NotiUI["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
+			NotiUI["1"]["Name"] = [[Notification]];
 			-- StarterGui.Notification.Frame
-			NotiUI["2"] = Instance.new("Frame", UI["2"]);
+			NotiUI["2"] = Instance.new("Frame", NotiUI["1"]);
 			NotiUI["2"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
 			NotiUI["2"]["Size"] = UDim2.new(0, 200, 0, 75);
 			NotiUI["2"]["Position"] = UDim2.new(1.5,0,1,-80);

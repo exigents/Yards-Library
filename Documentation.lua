@@ -160,6 +160,7 @@ CREATING A NOTIFICATION
 Arguments: 
 title = "Notification Title"
 text = "Notification Text"
+icon = AssetId
 length = 5
 
 ----------------------------------------------------------------------]]--
@@ -168,4 +169,5 @@ Window:Notify({
     title = "Notification",
     text = "Test",
     length = 10,
+    icon = 13223888731
 })

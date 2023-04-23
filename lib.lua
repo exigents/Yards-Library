@@ -1039,7 +1039,9 @@ function Library:new(Options)
 			length = 5,
 		}, Options)
 		
-		local NotiUI = {}
+		local NotiUI = {
+			Hovering = false,
+		}
 		
 		if #UI.CurrentNotifications > 0 then
 			for i,v in pairs(UI.CurrentNotifications) do
@@ -1147,6 +1149,33 @@ function Library:new(Options)
 			
 			table.insert(UI.CurrentNotifications, NotiUI["2"])
 		end
+		
+		NotiUI["2"].MouseEnter:Connect(function()
+			NotiUI.Hovering = true
+		end)
+		NotiUI["2"].MouseLeave:Connect(function()
+			NotiUI.Hovering = false
+		end)
+		
+		uis.InputBegan:Connect(function(input, gpe)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if NotiUI.Hovering == true then
+					Library:Tween(NotiUI["2"], {Position = UDim2.new(1.5, 0, 1, -80)}, function()
+						for i,v in pairs(UI.CurrentNotifications) do
+							if v == NotiUI["2"] then
+								table.remove(UI.CurrentNotifications, i)
+								for g, h in pairs(UI.CurrentNotifications) do
+									if g > i then
+										Library:Tween(h, {Position = UDim2.new(0, 0, 0, 105)})
+									end
+								end
+							end
+						end
+						NotiUI["1"]:Destroy()
+					end)
+				end
+			end
+		end)
 		
 		Library:Tween(NotiUI["2"], {Position = UDim2.new(1, -205, 1, -80)}, function()
 			task.wait(Options["length"])

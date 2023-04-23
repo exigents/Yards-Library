@@ -16,6 +16,7 @@ local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/exigents/
 CREATING A WINDOW
 Arguments: 
 title = "UI HUB TITLE"
+color = Color3.fromRGB(255, 255, 255)
 
 ----------------------------------------------------------------------]]--
 

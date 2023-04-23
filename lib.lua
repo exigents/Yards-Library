@@ -1074,7 +1074,7 @@ function Library:new(Options)
 			NotiUI["4"] = Instance.new("Frame", NotiUI["3"]);
 			NotiUI["4"]["ZIndex"] = 3;
 			NotiUI["4"]["BorderSizePixel"] = 0;
-			NotiUI["4"]["BackgroundColor3"] = Color3.fromRGB(211, 95, 106);
+			NotiUI["4"]["BackgroundColor3"] = UI["theme"];
 			NotiUI["4"]["AnchorPoint"] = Vector2.new(0, 1);
 			NotiUI["4"]["Size"] = UDim2.new(1, 0, 0.5, 0);
 			NotiUI["4"]["Position"] = UDim2.new(0, 0, 1, 0);

@@ -1029,6 +1029,121 @@ function Library:new(Options)
 		return Tab
 	end
 	
+	function UI:Notify(Options)
+		local Options = Options or {}
+		Options = Library:ValidateOptions({
+			title = "Notification",
+			icon = "13223888731",
+			text = "Notification Text",
+			length = 5,
+		}, Options)
+		
+		local NotiUI = {}
+		
+		do
+			-- StarterGui.Notification.Frame
+			NotiUI["2"] = Instance.new("Frame", UI["2"]);
+			NotiUI["2"]["BackgroundColor3"] = Color3.fromRGB(41, 41, 41);
+			NotiUI["2"]["Size"] = UDim2.new(0, 200, 0, 75);
+			NotiUI["2"]["Position"] = UDim2.new(1.5,0,1,-80);
+
+			-- StarterGui.Notification.Frame.Topbar
+			NotiUI["3"] = Instance.new("Frame", NotiUI["2"]);
+			NotiUI["3"]["ZIndex"] = 2;
+			NotiUI["3"]["BackgroundColor3"] = Color3.fromRGB(211, 95, 106);
+			NotiUI["3"]["Size"] = UDim2.new(1, 0, 0, 30);
+			NotiUI["3"]["Position"] = UDim2.new(0, 0, 0, -20);
+			NotiUI["3"]["Name"] = [[Topbar]];
+
+			-- StarterGui.Notification.Frame.Topbar.Frame
+			NotiUI["4"] = Instance.new("Frame", NotiUI["3"]);
+			NotiUI["4"]["ZIndex"] = 3;
+			NotiUI["4"]["BorderSizePixel"] = 0;
+			NotiUI["4"]["BackgroundColor3"] = Color3.fromRGB(211, 95, 106);
+			NotiUI["4"]["AnchorPoint"] = Vector2.new(0, 1);
+			NotiUI["4"]["Size"] = UDim2.new(1, 0, 0.5, 0);
+			NotiUI["4"]["Position"] = UDim2.new(0, 0, 1, 0);
+
+			-- StarterGui.Notification.Frame.Topbar.Title
+			NotiUI["5"] = Instance.new("TextLabel", NotiUI["3"]);
+			NotiUI["5"]["TextWrapped"] = true;
+			NotiUI["5"]["ZIndex"] = 3;
+			NotiUI["5"]["TextScaled"] = true;
+			NotiUI["5"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			NotiUI["5"]["FontFace"] = Font.new([[rbxasset://fonts/families/Ubuntu.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+			NotiUI["5"]["TextSize"] = 14;
+			NotiUI["5"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+			NotiUI["5"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+			NotiUI["5"]["Size"] = UDim2.new(1, -25, 1, -10);
+			NotiUI["5"]["Text"] = Options["title"];
+			NotiUI["5"]["Name"] = [[Title]];
+			NotiUI["5"]["BackgroundTransparency"] = 1;
+			NotiUI["5"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+
+			-- StarterGui.Notification.Frame.Topbar.Icon
+			NotiUI["6"] = Instance.new("ImageLabel", NotiUI["3"]);
+			NotiUI["6"]["ZIndex"] = 3;
+			NotiUI["6"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			NotiUI["6"]["AnchorPoint"] = Vector2.new(0, 0.5);
+			NotiUI["6"]["Image"] = "rbxassetid://"..Options["icon"];
+			NotiUI["6"]["Size"] = UDim2.new(0, 25, 0, 25);
+			NotiUI["6"]["Name"] = [[Icon]];
+			NotiUI["6"]["BackgroundTransparency"] = 1;
+			NotiUI["6"]["Position"] = UDim2.new(0, 5, 0.5, 0);
+
+			-- StarterGui.Notification.Frame.Topbar.UICorner
+			NotiUI["7"] = Instance.new("UICorner", NotiUI["3"]);
+
+
+			-- StarterGui.Notification.Frame.TextLabel
+			NotiUI["8"] = Instance.new("TextLabel", NotiUI["2"]);
+			NotiUI["8"]["TextWrapped"] = true;
+			NotiUI["8"]["TextScaled"] = true;
+			NotiUI["8"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+			NotiUI["8"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+			NotiUI["8"]["TextSize"] = 14;
+			NotiUI["8"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+			NotiUI["8"]["Size"] = UDim2.new(1, 0, 1, -10);
+			NotiUI["8"]["Text"] = Options["text"];
+			NotiUI["8"]["BackgroundTransparency"] = 1;
+			NotiUI["8"]["Position"] = UDim2.new(0, 0, 0, 10);
+
+			-- StarterGui.Notification.Frame.DropShadowHolder
+			NotiUI["9"] = Instance.new("Frame", NotiUI["2"]);
+			NotiUI["9"]["ZIndex"] = 0;
+			NotiUI["9"]["BorderSizePixel"] = 0;
+			NotiUI["9"]["BackgroundTransparency"] = 1;
+			NotiUI["9"]["Size"] = UDim2.new(1, 0, 1, 0);
+			NotiUI["9"]["Name"] = [[DropShadowHolder]];
+
+			-- StarterGui.Notification.Frame.DropShadowHolder.DropShadow
+			NotiUI["a"] = Instance.new("ImageLabel", NotiUI["9"]);
+			NotiUI["a"]["ZIndex"] = 0;
+			NotiUI["a"]["BorderSizePixel"] = 0;
+			NotiUI["a"]["SliceCenter"] = Rect.new(49, 49, 450, 450);
+			NotiUI["a"]["ScaleType"] = Enum.ScaleType.Slice;
+			NotiUI["a"]["ImageColor3"] = Color3.fromRGB(0, 0, 0);
+			NotiUI["a"]["ImageTransparency"] = 0.5;
+			NotiUI["a"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+			NotiUI["a"]["Image"] = [[rbxassetid://6014261993]];
+			NotiUI["a"]["Size"] = UDim2.new(1, 47, 1, 47);
+			NotiUI["a"]["Name"] = [[DropShadow]];
+			NotiUI["a"]["BackgroundTransparency"] = 1;
+			NotiUI["a"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+
+			-- StarterGui.Notification.Frame.UICorner
+			NotiUI["b"] = Instance.new("UICorner", NotiUI["2"]);
+
+		end
+		
+		Library:Tween(NotiUI["2"], {Position = UDim2.new(1, -205, 1, -80)}, function()
+			task.wait(Options["length"])
+			Library:Tween(NotiUI["2"], {Position = UDim2.new(1.5,0, 1, -80)}, function()
+				NotiUI["2"]:Destroy()
+			end)
+		end)
+	end
+	
 	UI["6"].MouseEnter:Connect(function()
 		UI["Hover"] = true
 	end)

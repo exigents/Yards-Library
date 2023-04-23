@@ -1165,7 +1165,7 @@ function Library:new(Options)
 							if v == NotiUI["2"] then
 								for g, h in pairs(UI.CurrentNotifications) do
 									if g > i then
-										Library:Tween(h, {Position = UDim2.new(0, 0, 0, 105)})
+										Library:Tween(h, {Position = h.Position + UDim2.new(0, 0, 0, 105)})
 									end
 								end
 								table.remove(UI.CurrentNotifications, i)

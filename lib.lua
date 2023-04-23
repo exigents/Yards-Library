@@ -232,7 +232,7 @@ function Library:new(Options)
 			-- StarterGui.MyLibrary.Frame.Navigation.ButtonHolder.Inactive
 			Tab["19"] = Instance.new("Frame", UI["11"]);
 			Tab["19"]["BorderSizePixel"] = 0;
-			Tab["19"]["BackgroundColor3"] = Options["color"];
+			Tab["19"]["BackgroundColor3"] = UI["theme"];
 			Tab["19"]["BackgroundTransparency"] = 1;
 			Tab["19"]["Size"] = UDim2.new(1, 0, 0, 30);
 			Tab["19"]["Name"] = [[Inactive]];

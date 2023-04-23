@@ -39,7 +39,8 @@ function Library:new(Options)
 		Connection = nil,
 		DragStart = nil,
 		StartPos = nil,
-		Opened = true
+		Opened = true,
+		CurrentNotifications = {}
 	}
 
 	do
@@ -1040,6 +1041,10 @@ function Library:new(Options)
 		
 		local NotiUI = {}
 		
+		for i,v in pairs(UI.CurrentNotifications) do
+			Library:Tween(v, {Position = v.Position + UDim2.new(0,0, 0, 80)})
+		end
+		
 		do
 			NotiUI["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
 			NotiUI["1"]["IgnoreGuiInset"] = true;
@@ -1137,13 +1142,19 @@ function Library:new(Options)
 
 			-- StarterGui.Notification.Frame.UICorner
 			NotiUI["b"] = Instance.new("UICorner", NotiUI["2"]);
-
+			
+			table.insert(UI.CurrentNotifications, NotiUI["2"])
 		end
 		
 		Library:Tween(NotiUI["2"], {Position = UDim2.new(1, -205, 1, -80)}, function()
 			task.wait(Options["length"])
 			Library:Tween(NotiUI["2"], {Position = UDim2.new(1.5,0, 1, -80)}, function()
-				NotiUI["2"]:Destroy()
+				for i,v in pairs(UI.CurrentNotifications) do
+					if v == NotiUI["2"] then
+						table.remove(UI.CurrentNotifications, i)
+					end
+				end
+				NotiUI["1"]:Destroy()
 			end)
 		end)
 	end

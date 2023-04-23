@@ -1041,8 +1041,10 @@ function Library:new(Options)
 		
 		local NotiUI = {}
 		
-		for i,v in pairs(UI.CurrentNotifications) do
-			Library:Tween(v, {Position = v.Position + UDim2.new(0,0, 0, 80)})
+		if #UI.CurrentNotifications > 0 then
+			for i,v in pairs(UI.CurrentNotifications) do
+				Library:Tween(v, {Position = v.Position + UDim2.new(0,0, 0, -80)})
+			end
 		end
 		
 		do
